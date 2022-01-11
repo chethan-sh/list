@@ -1,0 +1,138 @@
+.todo{
+    width: 80%;
+    margin: auto;
+    padding: 0px;
+    margin-top: 10px;
+}
+.input{
+    width:90%;
+    margin:auto;
+    margin-bottom: 10px;
+}
+
+.cards{
+    width:70%;
+    padding: 10px 0px 0px 0px;
+    margin:0px 100px 50px 120px;
+    overflow-y: auto;
+    height: 430px;
+}
+.wrap{
+    width:60%;
+    margin:auto;
+    margin-top: 0px;
+}
+.inputtext{
+    width:85%;
+    margin-right: 0px;
+    position: relative;
+    float: left;
+    position: relative;
+}
+.wrap::after{
+    content: "";
+  clear: both;
+  display: table;
+}
+.inputtext button{
+    position: absolute;
+    border:2px solid #7900FF;
+    background-color:#548CFF;
+    color: white;
+    font-size: 20px;
+    width: 100px;
+    text-align: center;
+    padding: 9px;
+    height: 60px;
+    top:1px;
+    right: 0px;
+    height: 43px;
+}
+.inputtext input{
+    width: 100%;
+    padding: 9px;
+    color: black;
+    font-size: 20px;
+    border:2px solid #7900FF;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.card{
+    background-color:white;
+    position: relative;
+    width:60%;
+    padding: 13px;
+    margin:auto;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow:1px 1px rgb(120, 248, 216);
+    border:2px solid #548CFF;
+}
+.card p{
+    float: left;
+    font-size: 20px;
+    width:60%;
+    margin: 2px 40px 0px 0px;
+    color: black;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+.card button{
+    margin: 0px 30px 0px 0px;
+    height: 35px;
+    width: 35px;
+    padding: 0px;
+    background-position: center;
+    background-size:contain;
+    border-radius: 5px;
+}
+.card input[type=checkbox]
+{
+    position: absolute;
+    top:13px;
+    left: 90%;
+    margin: 0px;
+    width:35px;
+    height: 35px;
+}
+.card::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.actions{
+    width:60%;
+    margin:auto;
+    text-align: center;
+}
+#count{
+    margin:0px 0px 10px 274px;
+    width:fit-content;
+    color: #548CFF;;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+.actions button{
+    font-size: 20px;
+    padding: 10px;
+    background-color: #2E8BC0;
+    border-radius: 5px;
+    margin-right: 60px;
+    color: white;
+    border: 2px solid rgb(65, 255, 144);
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #145DA0; 
+height:20px;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+

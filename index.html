@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./Todo.css">
+        <script src="./Todo.js"></script>
+    </head>
+    <body>
+        <div class='todo'>
+            <div class='input'>
+                <div class='wrap'>
+                    <h4 style='color:#8946A6;font-size: 25px;font-family:serif;text-shadow: 1px 1px black;margin:4px'>TO DO LIST</h4>
+                    <div class='inputtext'>
+                       <input id='text' type="text" placeholder="Enter your Task..">
+                       <button onclick="addItem()" id='add'>ADD</button>
+                    </div>
+                </div>
+            </div>
+            <p id='count'>total:0</p>
+            <div id='cds' class='cards'>
+                
+            </div>
+            <div class='actions'>
+                <button onclick="add()">ALL</button>
+                <button onclick="completed()">Completed</button>
+                <button onclick="pending()">Pending</button>
+            </div>
+        </div>
+       
+    </body>
+    
+</html>
