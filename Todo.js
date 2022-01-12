@@ -93,7 +93,6 @@ function divchange(){
         {
             if(confirm("Are you sure task completed"))
             {
-                b.style.border='2px solid green';
                 b.style.opacity='0.5';
                 tarr[+b.id]['complete']=true;
             }
@@ -103,7 +102,6 @@ function divchange(){
         }
         else{
             tarr[+b.id]['complete']=false;
-            b.style.border='2px solid black';
             b.style.opacity='10';  
         }
     }
@@ -291,6 +289,7 @@ function add() {
             let check=document.createElement('input');
             check.type='checkbox';
             check.checked=tarr[i]['complete'];
+            card.style.opacity=(check.checked)?'0.5':'10';
             card.appendChild(p1);
             card.appendChild(edit);
             card.appendChild(del);
