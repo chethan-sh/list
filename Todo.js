@@ -4,8 +4,22 @@ let del=0;
 let flag;
 let exist=false;
 
-
-function addItem(edit) {
+function onkeydownn()
+{
+    if(event.keyCode==13 && flag==0)
+    {
+        event.preventDefault();
+        document.getElementById('add').click();
+        return;
+    }
+    if(event.keyCode==13)
+    {
+        event.preventDefault();
+        document.getElementById('add').click();
+        return;
+    }
+}
+function addItem() {
     let task=document.getElementById('text').value;
     if(!isNaN(task))
     {
@@ -24,14 +38,13 @@ function addItem(edit) {
             {
                 exist=true;
             }
-
         }
-        
     })
     if(exist)
     {
         alert("Task already exist in list");
         exist=false;
+        document.getElementById('text').value='';
     }
     else{
         tarr[count]={
@@ -45,10 +58,7 @@ function addItem(edit) {
        document.getElementById('text').value='';
        count++;
        document.getElementById('count').innerHTML=`total:${count-del}`;
-
     }
-       
-    
 }
 function createCard(task){
         tarr[count]['complete']=false;
@@ -73,17 +83,14 @@ function createCard(task){
         card.appendChild(del);
         card.appendChild(check);
         document.getElementById('cds').appendChild(card);   
-
 }
 function divchange(){
     let a=event.target;
     let b=event.currentTarget;
-
     if(a.type=='checkbox')
     {
         if(a.checked)
         {
-            
             if(confirm("Are you sure task completed"))
             {
                 b.style.border='2px solid green';
@@ -97,22 +104,17 @@ function divchange(){
         else{
             tarr[+b.id]['complete']=false;
             b.style.border='2px solid black';
-            b.style.opacity='10';
-            
+            b.style.opacity='10';  
         }
     }
     if(a.id=='del')
     {
-        
         if(confirm("Are you sure you want to delete"))
         {
             tarr[+b.id]=undefined;
             b.parentNode.removeChild(b);
             del=del+1;
-            
-            document.getElementById('count').innerHTML=`total:${count-del}`;
             alert("Task deleted from the list");
-        
          }
          return;
     }
@@ -130,19 +132,45 @@ function divchange(){
         btn.innerHTML='Update';
         let div=document.getElementById(`${b.id}`);
         textbox.value=tarr[+b.id]['task'];
-        btn.removeAttribute('onclick');
+        btn.removeAttribute('onclick'); 
         let delfunc=function() {
-            
-            if(confirm("Are you sure you want to update"))
+            if(textbox.value=='' || (!isNaN(+textbox.value)))
             {
-                tarr[+b.id]['task']=textbox.value;
-                let p=div.childNodes;
-                p[0].innerHTML=textbox.value;
-                alert("Task Updated Succesfully..")
+                alert("enter valid credentials");
                 btn.removeEventListener('click',delfunc);
             }
-            else{
-                btn.removeEventListener('click',delfunc);
+            else
+            {
+                if(confirm("Are you sure you want to update"))
+                {
+                  
+                    tarr.forEach((ele)=>{
+                        if(ele!=undefined)
+                        {
+                            if((ele['task']==textbox.value))
+                            {
+                                exist=true;
+                            }
+                        }
+                    })
+                    if(exist)
+                    {
+                        alert("No update found in task");
+                        btn.removeEventListener('click',delfunc);
+                        exist=false;
+                    }
+                    else
+                    {
+                        tarr[+b.id]['task']=textbox.value;
+                        let p=div.childNodes;
+                        p[0].innerHTML=textbox.value;
+                        alert("Task Updated Succesfully..")
+                        btn.removeEventListener('click',delfunc);
+                    }
+                }
+                else{
+                    btn.removeEventListener('click',delfunc);
+                }
             }
             textbox.value='';
             btn.innerHTML='ADD';
@@ -150,7 +178,6 @@ function divchange(){
             btn.setAttribute('onclick','addItem()');
            // return;
         };
-       
         btn.addEventListener('click',delfunc);
     }
 }
@@ -190,9 +217,7 @@ function completed() {
                 document.getElementById('cds').appendChild(card);
                 ttl++;
              }
-
         }
-        
     }
     document.getElementById('count').innerHTML=`completed:${ttl}`;
 }
@@ -234,7 +259,6 @@ function pending() {
             ttl++;
             }
         }
-        
     }
     document.getElementById('count').innerHTML=`pending:${ttl}`;
 } 
@@ -273,7 +297,6 @@ function add() {
             card.appendChild(check);
             document.getElementById('cds').appendChild(card);
             ttl=ttl+1;
-            
         }
     }
     document.getElementById('count').innerHTML=`total:${ttl}`;
