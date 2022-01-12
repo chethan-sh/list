@@ -9,7 +9,7 @@
                 <div class='wrap'>
                     <h4 style='color:#8946A6;font-size: 25px;font-family:serif;text-shadow: 1px 1px black;margin:4px'>TO DO LIST</h4>
                     <div class='inputtext'>
-                       <input id='text' type="text" placeholder="Enter your Task..">
+                       <input maxlength="40" onkeydown="onkeydownn()" id='text' type="text" placeholder="Enter your Task..">
                        <button onclick="addItem()" id='add'>ADD</button>
                     </div>
                 </div>
@@ -24,7 +24,5 @@
                 <button onclick="pending()">Pending</button>
             </div>
         </div>
-       
     </body>
-    
 </html>
