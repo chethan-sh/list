@@ -91,29 +91,40 @@ function divchange(){
     {
         if(a.checked)
         {
-            if(confirm("Are you sure task completed"))
+            if(flag==0)
             {
-                b.style.opacity='0.5';
-                tarr[+b.id]['complete']=true;
-            }
-            else{
+                alert("Complete the update task first");
                 a.checked=false;
+                
             }
-        }
-        else{
-            tarr[+b.id]['complete']=false;
-            b.style.opacity='10';  
+            else
+            {
+                if(confirm("Are you sure task completed"))
+                    {
+                     b.style.opacity='0.5';
+                     tarr[+b.id]['complete']=true;
+                    }
+                     else{
+                     a.checked=false;
+                     }
+            }
         }
     }
     if(a.id=='del')
     {
-        if(confirm("Are you sure you want to delete"))
+        if(flag==0)
         {
-            tarr[+b.id]=undefined;
-            b.parentNode.removeChild(b);
-            del=del+1;
-            alert("Task deleted from the list");
-         }
+            alert("complete update task first")
+        }
+        else{
+            if(confirm("Are you sure you want to delete"))
+            {
+                tarr[+b.id]=undefined;
+                b.parentNode.removeChild(b);
+                del=del+1;
+                alert("Task deleted from the list");
+             }
+        }
          return;
     }
     if(a.id=='edit')
