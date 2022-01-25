@@ -109,6 +109,10 @@ function divchange(){
                      }
             }
         }
+        else{
+            tarr[+b.id]['complete']=false;
+            b.style.opacity='10';  
+        }
     }
     if(a.id=='del')
     {
